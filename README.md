@@ -15,10 +15,25 @@ A total of nine chapters have been designed, of which Chapter 1 to Chapter 4 are
 First of all, the top shows the chapter number, the left side of the main menu button, the right side of the answer button. After clicking the answer button, it will show the hint picture with graphic outline. Next is the destination graphic image, 9*9 size grid. There is an area under the grid to show the success animation
 # 2. The design of the jigsaw puzzle and the realization of the intersection
 # (1) Two pieces of jigsaw puzzle
-Chapter 1, for example, the need to create two pieces of the puzzle for the side lengths were 5 and 4 of the size of the two squares. The intersection of the two graphics is calculated using .path to determine the path of the graphics, and then use the intersection function to determine the intersection.
+Chapter 1, for example, the need to create two pieces of the puzzle for the side lengths were 5 and 4 of the size of the two squares. The intersection of the two graphics is calculated using .path to determine the path of the graphics, and then use the intersection function to determine the intersection:
+```
+func intersection(
+    _ other: Path,
+    eoFill: Bool = false
+) -> Path
+```
 ![image](https://github.com/user-attachments/assets/52a7e931-3fc3-43c8-ae27-85364b477e6a)
 # (2) Three-Piece Puzzle
-The structure is similar to the code of the two-piece puzzle, but to add the implementation of the intersection of the three graphs. Take Chapter 5 as an example, you need to create a rectangle and two right triangles, where the intersection of the three shapes is used by splitting the shapes for sampling, and then determining whether the sampling points are within the intersection.
+The structure is similar to the code of the two-piece puzzle, but to add the implementation of the intersection of the three graphs. Take Chapter 5 as an example, you need to create a rectangle and two right triangles, where the intersection of the three shapes is used by splitting the shapes for sampling, and then determining whether the sampling points are within the intersection:
+```
+if pathT1.contains(point) && pathT2.contains(point) && pathR.contains(point) {
+    // 如果该点在三个形状交集中，就把该小区域加入路径
+    p.addRect(CGRect(x: x - deltaX/2,
+    y: y - deltaY/2,
+    width: deltaX,
+    height: deltaY))
+}
+```
 ![image](https://github.com/user-attachments/assets/52ddb8c6-4039-4be9-85a8-c01cf88c6397)
 # 3. Animations
 An animation is created after each successful level, starting with a gray circle superimposed on a blue circle with a slightly smaller radius, the blue circle has a tick animation. The blue circle has a tick animation. After the tick animation, the blue circle's position and state remain unchanged, and the gray circle expands into a capsule and displays three icons for the following functions: main page, restart, and next chapter. So the final effect is a capsule, the blue circle is on the left side of the capsule (and the left side of the capsule is as wide as the round edge), the blue circle inside the capsule on the right side of the three buttons. Add the sound effect of successful App Store payment while the animation pops up.
