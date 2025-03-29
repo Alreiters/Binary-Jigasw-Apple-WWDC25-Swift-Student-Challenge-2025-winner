@@ -1,5 +1,7 @@
-# Binary-Jigasw-Apple-WWDC25-Swift-Student-Challenge-entry
+# Binary-Jigasw-Apple-WWDC25-Swift-Student-Challenge-Winner
 I hope that children can experience a fun game to improve spatial imagination and logical reasoning, and perhaps can especially help kids with special needs (e.g. ADHD, SPD, NVLD). Binary Jigsaw was born for this as a novel jigsaw puzzle, and let children learn in a relaxing and enjoyable way.
+![3a60ee3d58c31a9b986cdb369d96378](https://github.com/user-attachments/assets/5951458d-fcd1-4ccb-9c06-f55e493bf789)
+
 
 # I. home and intro
 # 1. ContentView
