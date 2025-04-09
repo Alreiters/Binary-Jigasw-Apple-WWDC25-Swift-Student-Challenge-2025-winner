@@ -41,7 +41,7 @@ if pathT1.contains(point) && pathT2.contains(point) && pathR.contains(point) {
 # 3. Animations
 An animation is created after each successful level, starting with a gray circle superimposed on a blue circle with a slightly smaller radius, the blue circle has a tick animation. The blue circle has a tick animation. After the tick animation, the blue circle's position and state remain unchanged, and the gray circle expands into a capsule and displays three icons for the following functions: main page, restart, and next chapter. So the final effect is a capsule, the blue circle is on the left side of the capsule (and the left side of the capsule is as wide as the round edge), the blue circle inside the capsule on the right side of the three buttons. Add the sound effect of successful App Store payment while the animation pops up.
 ![image](https://github.com/user-attachments/assets/36b6b563-c6db-440d-a3cd-538589303cac)
-After completing the fifth chapter, an additional encouraging animation pops up, similar to “Duolingguo”.
+After completing the fifth chapter, an additional encouraging animation pops up.
 ![image](https://github.com/user-attachments/assets/7f77cf7b-03ea-4084-8a8c-2e98b9236d77)
 
 # III. User Experience
