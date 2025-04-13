@@ -1,5 +1,29 @@
-```
-var body: some View {
+import SwiftUI
+
+struct ContentView: View {
+    // 章节内容数组，每个元素包括章节标题、描述和图片名称
+    let levels = [
+        ("Chapter 1", "intro - >ᴗ<✧", "image1"),
+        ("Chapter 2", "butterfly ~ ʚiɞ", "image2"),
+        ("Chapter 3", "podium ! ✌︎︎•◡•𝕪𝕖𝕖𝕖𝕖", "image3"),
+        ("Chapter 4", "Apple Park ! ! ! ", "image4"),
+        ("Chapter 5", "hourglass...๑ᵒᯅᵒ๑", "image5"),
+        ("Chapter 6", "I am Bat(man) ! 𓆩 - 𓆪", "image6"),
+        ("Chapter 7", "Darth Vader ᗜ ‸ ᗜ", "image7"),
+        ("Chapter 8", "Safari ? (Special Vresion)", "image8"),
+        ("Chapter 9", "Swift ! ! ! ! ！", "image9"),
+        ("Chapter 10", "To be continued......", "image10")
+    ]
+    
+    @State private var scrollOffset: CGFloat = 0
+    @State private var activePage: Int = UserDefaults.standard.integer(forKey: "targetChapter") // 读取存储的章节
+    @State private var needsInitialScroll = true  // 新增状态控制初始滚动
+    
+    private let cardWidth: CGFloat = 400  // 卡片的宽度
+    private let cardHeight: CGFloat = 325 // 卡片的高度
+    private let spacing: CGFloat = 100    // 卡片之间的间距，已增加间距
+    
+    var body: some View {
         NavigationStack {
             // 获取屏幕宽度
             GeometryReader { geometry in
@@ -104,4 +128,34 @@ var body: some View {
         }
         .accentColor(.blue.opacity(0.75))
     }
-```
+    
+    // 根据 index 返回对应的章节视图
+    func getChapterView(for index: Int) -> some View {
+        switch index {
+        case 0: return Chapter1()
+        case 1: return Chapter2()
+        case 2: return Chapter3()
+        case 3: return Chapter4()
+        case 4: return Chapter5()
+        case 5: return Chapter6()
+        case 6: return Chapter7()
+        case 7: return Chapter8()
+        case 8: return Chapter9()
+        case 9: return Chapter10()
+        default: return Text("Chapter not found")
+        }
+    }
+}
+
+struct ScrollOffsetKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value += nextValue()
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
